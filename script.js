@@ -1,100 +1,114 @@
-//turn pages when click next or prev button
-const pageTurnBtn = document.querySelectorAll('.nextprev-btn');
+// Tourner les pages en cliquant sur les boutons "Next" ou "Previous"
+const pageTurnBtn = document.querySelectorAll(".nextprev-btn");
 
+// Ajoute un gestionnaire d'événements à chaque bouton "Next/Prev"
 pageTurnBtn.forEach((el, index) => {
-    el.onclick = () => {
-        const pageTurnId = el.getAttribute('data-page');
-        const pageTurn = document.getElementById(pageTurnId);
+  el.onclick = () => {
+    // Récupère l'identifiant de la page cible depuis l'attribut data-page
+    const pageTurnId = el.getAttribute("data-page");
+    const pageTurn = document.getElementById(pageTurnId);
 
-        if (pageTurn.classList.contains('turn')) {
-            pageTurn.classList.remove('turn');
-            setTimeout(() => {
-                pageTurn.style.zIndex = 20 - index;
-            }, 500)
-        }
-        else {
-            pageTurn.classList.add('turn');
-            setTimeout(() => {
-                pageTurn.style.zIndex = 20 + index;
-            }, 500)
-        }
+    // Vérifie si la page contient déjà la classe "turn" (la page est tournée)
+    if (pageTurn.classList.contains("turn")) {
+      // Si oui, on retire la classe "turn" pour revenir à l'état initial
+      pageTurn.classList.remove("turn");
+      setTimeout(() => {
+        // Ajuste le z-index pour rétablir la superposition des pages
+        pageTurn.style.zIndex = 20 - index;
+      }, 500); // Délai pour correspondre à l'animation CSS
+    } else {
+      // Sinon, on ajoute la classe "turn" pour tourner la page
+      pageTurn.classList.add("turn");
+      setTimeout(() => {
+        // Ajuste le z-index pour que la page se superpose correctement
+        pageTurn.style.zIndex = 20 + index;
+      }, 500); // Délai pour correspondre à l'animation CSS
     }
-})
+  };
+});
 
-//contact me button when click
-const pages = document.querySelectorAll('.book-page.page-right');
-const contactMeBtn = document.querySelector('.btn.contact-me');
+// Bouton "Contact Me" : tourne toutes les pages pour atteindre la section Contact
+const pages = document.querySelectorAll(".book-page.page-right");
+const contactMeBtn = document.querySelector(".btn.contact-me");
 
 contactMeBtn.onclick = () => {
-    pages.forEach((page, index) => {
-        setTimeout(() => {
-            page.classList.add('turn');
+  // Tourne toutes les pages à droite une par une avec un décalage dans le temps
+  pages.forEach((page, index) => {
+    setTimeout(() => {
+      // Ajoute la classe "turn" pour déclencher l'animation
+      page.classList.add("turn");
 
-            setTimeout(() => {
-                page.style.zIndex = 20 + index;
-            }, 500)
+      setTimeout(() => {
+        // Ajuste le z-index après l'animation
+        page.style.zIndex = 20 + index;
+      }, 500); // Délai pour correspondre à l'animation CSS
+    }, (index + 1) * 200 + 100); // Décalage pour un effet progressif
+  });
+};
 
-        }, (index + 1) * 200 + 100)
-    })
-}
-
-//create reverse index function
-let totalPages = pages.length;
-let pageNumber = 0;
+// Fonction pour gérer les index inversés lors de la navigation arrière
+let totalPages = pages.length; // Nombre total de pages
+let pageNumber = 0; // Index courant de la page
 
 function reverseIndex() {
-    pageNumber--;
-    if (pageNumber < 0) {
-        pageNumber = totalPages - 1;
-    }
+  pageNumber--; // Passe à la page précédente
+  if (pageNumber < 0) {
+    // Si on dépasse le début, on revient à la dernière page
+    pageNumber = totalPages - 1;
+  }
 }
 
-//back profile button when click
-const backProfileBtn = document.querySelector('.back-profile');
+// Bouton "Profile" : revenir à la page de profil en inversant les pages tournées
+const backProfileBtn = document.querySelector(".back-profile");
 
 backProfileBtn.onclick = () => {
-    pages.forEach((_, index) => {
-        setTimeout(() => {
-            reverseIndex();
-            pages[pageNumber].classList.remove('turn');
-
-            setTimeout(() => {
-                reverseIndex();
-                pages[pageNumber].style.zIndex = 10 + index;
-            }, 500)
-
-        }, (index + 1) * 200 + 100)
-    })
-}
-
-//opening animation
-const coverRight = document.querySelector('.cover.cover-right');
-const pageLeft = document.querySelector('.book-page.page-left');
-
-//opening animation (cover right animation)
-setTimeout(() => {
-    coverRight.classList.add('turn');
-}, 2100)
-
-setTimeout(() => {
-    coverRight.style.zIndex = -1;
-}, 2800)
-
-//opening animation (page left or profile page animation)
-setTimeout(() => {
-    pageLeft.style.zIndex = 20;
-}, 3200)
-
-//opening animation (all page right animation)
-pages.forEach((_, index) => {
+  pages.forEach((_, index) => {
     setTimeout(() => {
+      // Met à jour l'index pour cibler les pages dans l'ordre inverse
+      reverseIndex();
+      // Retire la classe "turn" pour faire revenir la page
+      pages[pageNumber].classList.remove("turn");
+
+      setTimeout(() => {
+        // Ajuste le z-index après l'animation
         reverseIndex();
-        pages[pageNumber].classList.remove('turn');
+        pages[pageNumber].style.zIndex = 10 + index;
+      }, 500); // Délai pour correspondre à l'animation CSS
+    }, (index + 1) * 200 + 100); // Décalage progressif pour un effet fluide
+  });
+};
 
-        setTimeout(() => {
-            reverseIndex();
-            pages[pageNumber].style.zIndex = 10 + index;
-        }, 500)
+// Animation d'ouverture : gestion de l'ouverture automatique des pages au chargement
+const coverRight = document.querySelector(".cover.cover-right"); // Cible la couverture droite
+const pageLeft = document.querySelector(".book-page.page-left"); // Cible la page de profil (gauche)
 
-    }, (index + 1) * 200 + 2100)
-})
+// Animation de la couverture droite (tourne après 2,1 secondes)
+setTimeout(() => {
+  coverRight.classList.add("turn"); // Ajoute la classe "turn" pour simuler l'ouverture
+}, 2100);
+
+// Ajuste le z-index de la couverture pour qu'elle disparaisse derrière les pages
+setTimeout(() => {
+  coverRight.style.zIndex = -1; // Cache la couverture après l'animation
+}, 2800);
+
+// Met la page de profil (gauche) au premier plan
+setTimeout(() => {
+  pageLeft.style.zIndex = 20; // Assure que la page de profil est visible
+}, 3200);
+
+// Animation des pages droites pour qu'elles s'affichent correctement au chargement
+pages.forEach((_, index) => {
+  setTimeout(() => {
+    // Met à jour l'index en sens inverse
+    reverseIndex();
+    // Retire la classe "turn" pour que les pages apparaissent en état initial
+    pages[pageNumber].classList.remove("turn");
+
+    setTimeout(() => {
+      // Ajuste le z-index pour éviter les conflits
+      reverseIndex();
+      pages[pageNumber].style.zIndex = 10 + index;
+    }, 500); // Délai pour correspondre à l'animation CSS
+  }, (index + 1) * 200 + 2100); // Décalage progressif pour un effet fluide
+});
