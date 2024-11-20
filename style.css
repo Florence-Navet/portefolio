@@ -586,11 +586,10 @@ body {
   .profile-page p {
     font-size: 0.5rem;
     
-    
   }
   
   
-  /* Style de base */
+  /* Style de base pour les a*/
   .profile-page .social-media a {
     width: 1.4rem;
     height: 1.4rem;
