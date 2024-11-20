@@ -491,203 +491,287 @@ body {
   top: -1.8rem;
 }
 
-
 /* Cible les écrans de 800px ou moins */
 
 /* *************Media queries******************* */
+/* Cible les écrans de 800px ou moins */
+/* Cible les écrans de 800px ou moins */
 @media screen and (max-width: 800px) {
   .profile-page h1 {
     font-size: 1.5rem;
     text-align: center;
   }
+
   .profile-page h3 {
     font-size: 0.9rem;
-  } 
-  .page-front h5 {
-    font-size: 0.2rem;
   }
+
   .book .profile-page .social-media a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.3rem;
+    margin: 0 4.2rem;
   }
-  
+
   .profile-page p {
     font-size: 0.7rem;
     text-align: justify;
-    
   }
+
   .profile-page img {
     max-width: 70px;
-    margin:0 auto;
+    margin: 0 auto;
     display: block;
     position: relative;
     top: -20px;
-
-   
-  }
-  /* Style de base */
-  .profile-page .social-media a {
-     width: 2rem;
-    height: 2rem;
-    background: transparent;
-    border: var(--border);
-    border-radius: 45%;
-    font-size: 1.3rem;
-    color: var(--main-color);
-    margin: 0 4.2rem; /* Espacement horizontal entre les boutons */
-    transition: 0.5s;
   }
 
-  . btn-box a {
-    margin: 1.9rem 0;
+  .profile-page .btn {
+    width: 8rem;
+    height: 2.5rem;
+    font-size: 0.85rem;
   }
+
+  .btn-box .btn:nth-child(2) {
+    width: 8rem;
+    height: 2.5rem;
+  }
+
+  .btn-box .btn:nth-child(2):hover {
+    background: var(--main-color);
+    color: var(--white-color);
+  }
+
   .workeduc-box .workeduc-content::before {
-  content: none; /* Désactive le pseudo-élément */
-  width: 0; /* Facultatif : Réinitialise la largeur */
-  height: 0; /* Facultatif : Réinitialise la hauteur */
+    content: none;
+    width: 0;
+    height: 0;
   }
-  .page-back h1 {
-  font-size: 1.3rem;
-  }
-  .page-back h3 {
-  font-size: 0.9rem;
-  }
+
+  .page-back h1,
   .page-front h1 {
-  font-size: 1.3rem;
+    font-size: 1.3rem;
   }
+
+  .page-back h3,
   .page-front h3 {
-  font-size: 0.9rem;
+    font-size: 0.9rem;
   }
+
   .page-front ul li {
-  font-size: 0.6em;
+    font-size: 0.6em;
   }
+
   .services-box {
-  display: block;
+    display: block;
   }
 }
+
+/* Cible les écrans de 500px ou moins */
 @media screen and (max-width: 500px) {
   .profile-page h1 {
     font-size: 0.8rem;
     text-align: center;
   }
+
   .profile-page img {
     max-width: 50px;
-    margin:0 auto;
+    margin: 0 auto;
     display: block;
     position: relative;
     top: 0;
-
-   
   }
+
   .profile-page h3 {
     font-size: 0.5rem;
   }
+
   .profile-page p {
     font-size: 0.5rem;
-    
-    
   }
-  
-  
-  /* Style de base */
+
   .profile-page .social-media a {
     width: 1.4rem;
     height: 1.4rem;
     font-size: 1rem;
-    color: var(--main-color);
-    margin: 0 2.1rem; /* Espacement horizontal entre les boutons */
+    margin: 0 2.1rem;
   }
 
-  . btn-box a {
+  .btn-box a {
     margin: 1.6rem 0;
   }
+
   .workeduc-box .workeduc-content::before {
-  content: none; /* Désactive le pseudo-élément */
-  width: 0; /* Facultatif : Réinitialise la largeur */
-  height: 0; /* Facultatif : Réinitialise la hauteur */
+    content: none;
+    width: 0;
+    height: 0;
   }
+
   .page-back h1 {
-  font-size: 0.4rem;
+    font-size: 0.4rem;
   }
+
   .page-back h3 {
-  font-size: 15px;
+    font-size: 15px;
   }
+
   .page-front h1 {
-  font-size: 12px;
+    font-size: 12px;
   }
+
   .page-front h3 {
-  font-size: 0.5rem;
+    font-size: 0.5rem;
   }
+
   .page-front ul li {
-  font-size: 0.5em;
+    font-size: 0.5em;
   }
+
   .services-box h5 {
     font-size: 0.2rem;
   }
+
   .services-box {
-  display: block;
+    display: block;
   }
-}
-@media screen and (max-width: 400px) {
-  .profile-page h1 {
-    font-size: 0.7rem;
+
+  .workeduc-box,
+  .portfolio-box,
+  .skills-box {
+    padding: 7px;
+  }
+
+  .img-box img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .portfolio-box {
+    display: block;
     text-align: center;
   }
+
+  .social-media {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  form input[type="text"],
+  form input[type="email"],
+  form textarea {
+    padding: 5px;
+    font-size: 0.75rem;
+  }
+
+  form button[type="submit"] {
+    padding: 7px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Cible les écrans de 400px ou moins */
+@media screen and (max-width: 400px) {
+  .profile-page h1 {
+    font-size: 0.65rem;
+    text-align: center;
+  }
+
   .profile-page img {
-    max-width: 40px;
-    margin:0;
+    max-width: 35px;
+    margin: 0;
     margin-top: 0;
     display: block;
     position: relative;
     top: 0;
-
-   
   }
+
   .profile-page h3 {
+    font-size: 0.3rem;
+  }
+
+  .profile-page p {
+    font-size: 0.2rem;
+  }
+
+  .profile-page .social-media a {
+    width: 1rem;
+    height: 1rem;
+    font-size: 0.75rem;
+    margin: 0 1rem;
+  }
+
+  .btn-box a {
+    margin: 1rem 0;
+  }
+
+  .workeduc-box .workeduc-content::before {
+    content: none;
+    width: 0;
+    height: 0;
+  }
+
+  .page-back h1 {
+    font-size: 0.35rem;
+  }
+
+  .page-back h3 {
+    font-size: 0.25rem;
+  }
+
+  .page-front h1 {
     font-size: 0.4rem;
   }
-  .profile-page p {
-    font-size: 0.3rem;
-    
-    
-  }
-  
-  
-  /* Style de base */
-  .profile-page .social-media a {
-    width: 1.1rem;
-    height: 1.1em;
-    font-size: 0.9rem;
-    color: var(--main-color);
-    margin: 0 1.1rem; /* Espacement horizontal entre les boutons */
-  }
 
-  . btn-box a {
-    margin: 1.3rem 0;
-  }
-  .workeduc-box .workeduc-content::before {
-  content: none; /* Désactive le pseudo-élément */
-  width: 0; /* Facultatif : Réinitialise la largeur */
-  height: 0; /* Facultatif : Réinitialise la hauteur */
-  }
-  .page-back h1 {
-  font-size: 0.5rem;
-  }
-  .page-back h3 {
-  font-size: 0.3rem;
-  }
-  .page-front h1 {
-  font-size: 0.5rem;
-  }
   .page-front h3 {
-  font-size: 0.3rem;
-  }
-  .page-front ul li {
-  font-size: 0.2em;
-  }
-  .services-box {
-  display: block;
+    font-size: 0.25rem;
   }
 
+  .page-front ul li {
+    font-size: 0.18rem;
+  }
+
+  .services-box h5 {
+    font-size: 0.15rem;
+  }
+
+  .services-box {
+    display: block;
+  }
+
+  .workeduc-box,
+  .portfolio-box,
+  .skills-box {
+    padding: 7px;
+  }
+
+  .img-box img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .portfolio-box {
+    display: block;
+    text-align: center;
+  }
+
+  .social-media {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  form input[type="text"],
+  form input[type="email"],
+  form textarea {
+    padding: 5px;
+    font-size: 0.75rem;
+  }
+
+  form button[type="submit"] {
+    padding: 7px;
+    font-size: 0.85rem;
+  }
 }
