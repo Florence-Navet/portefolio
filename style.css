@@ -502,6 +502,9 @@ body {
   }
   .profile-page h3 {
     font-size: 0.9rem;
+  } 
+  .page-front h5 {
+    font-size: 0.2rem;
   }
   .book .profile-page .social-media a {
     display: flex;
@@ -516,55 +519,175 @@ body {
   }
   .profile-page img {
     max-width: 70px;
+    margin:0 auto;
+    display: block;
+    position: relative;
+    top: -20px;
+
    
   }
- /* Style de base */
-.profile-page .social-media a {
-  
-  width: 2rem;
-  height: 2rem;
-  background: transparent;
-  border: var(--border);
-  border-radius: 45%;
-  font-size: 1.3rem;
-  color: var(--main-color);
-  margin: 0 4.2rem; /* Espacement horizontal entre les boutons */
-  transition: 0.5s;
-}
+  /* Style de base */
+  .profile-page .social-media a {
+     width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: var(--border);
+    border-radius: 45%;
+    font-size: 1.3rem;
+    color: var(--main-color);
+    margin: 0 4.2rem; /* Espacement horizontal entre les boutons */
+    transition: 0.5s;
+  }
 
-.btn-box a {
-
-  margin: 1.9rem 0;
-}
-.workeduc-box .workeduc-content::before {
+  . btn-box a {
+    margin: 1.9rem 0;
+  }
+  .workeduc-box .workeduc-content::before {
   content: none; /* Désactive le pseudo-élément */
   width: 0; /* Facultatif : Réinitialise la largeur */
   height: 0; /* Facultatif : Réinitialise la hauteur */
-}
-.page-back h1 {
+  }
+  .page-back h1 {
   font-size: 1.3rem;
-}
-.page-back h3 {
+  }
+  .page-back h3 {
   font-size: 0.9rem;
-}
-.page-front h1 {
+  }
+  .page-front h1 {
   font-size: 1.3rem;
-}
-.page-front h3 {
+  }
+  .page-front h3 {
   font-size: 0.9rem;
-}
-.page-front ul li {
+  }
+  .page-front ul li {
   font-size: 0.6em;
-}
-
-
-.services-box {
+  }
+  .services-box {
   display: block;
+  }
 }
+@media screen and (max-width: 500px) {
+  .profile-page h1 {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .profile-page img {
+    max-width: 50px;
+    margin:0 auto;
+    display: block;
+    position: relative;
+    top: 0;
 
- 
-
-
+   
+  }
+  .profile-page h3 {
+    font-size: 0.5rem;
+  }
+  .profile-page p {
+    font-size: 0.5rem;
+    
+    
+  }
   
   
+  /* Style de base */
+  .profile-page .social-media a {
+    width: 1.4rem;
+    height: 1.4rem;
+    font-size: 1rem;
+    color: var(--main-color);
+    margin: 0 2.1rem; /* Espacement horizontal entre les boutons */
+  }
+
+  . btn-box a {
+    margin: 1.6rem 0;
+  }
+  .workeduc-box .workeduc-content::before {
+  content: none; /* Désactive le pseudo-élément */
+  width: 0; /* Facultatif : Réinitialise la largeur */
+  height: 0; /* Facultatif : Réinitialise la hauteur */
+  }
+  .page-back h1 {
+  font-size: 0.4rem;
+  }
+  .page-back h3 {
+  font-size: 15px;
+  }
+  .page-front h1 {
+  font-size: 12px;
+  }
+  .page-front h3 {
+  font-size: 0.5rem;
+  }
+  .page-front ul li {
+  font-size: 0.5em;
+  }
+  .services-box h5 {
+    font-size: 0.2rem;
+  }
+  .services-box {
+  display: block;
+  }
+}
+@media screen and (max-width: 400px) {
+  .profile-page h1 {
+    font-size: 0.7rem;
+    text-align: center;
+  }
+  .profile-page img {
+    max-width: 40px;
+    margin:0;
+    margin-top: 0;
+    display: block;
+    position: relative;
+    top: 0;
+
+   
+  }
+  .profile-page h3 {
+    font-size: 0.4rem;
+  }
+  .profile-page p {
+    font-size: 0.3rem;
+    
+    
+  }
+  
+  
+  /* Style de base */
+  .profile-page .social-media a {
+    width: 1.1rem;
+    height: 1.1em;
+    font-size: 0.9rem;
+    color: var(--main-color);
+    margin: 0 1.1rem; /* Espacement horizontal entre les boutons */
+  }
+
+  . btn-box a {
+    margin: 1.3rem 0;
+  }
+  .workeduc-box .workeduc-content::before {
+  content: none; /* Désactive le pseudo-élément */
+  width: 0; /* Facultatif : Réinitialise la largeur */
+  height: 0; /* Facultatif : Réinitialise la hauteur */
+  }
+  .page-back h1 {
+  font-size: 0.5rem;
+  }
+  .page-back h3 {
+  font-size: 0.3rem;
+  }
+  .page-front h1 {
+  font-size: 0.5rem;
+  }
+  .page-front h3 {
+  font-size: 0.3rem;
+  }
+  .page-front ul li {
+  font-size: 0.2em;
+  }
+  .services-box {
+  display: block;
+  }
+
 }

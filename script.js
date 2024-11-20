@@ -119,3 +119,6 @@ setupBackProfileButton();
 
 // Lance l'animation d'ouverture
 autoOpenAnimation();
+
+//en mediaqueries
+// Définition d'un effet d'animation
