@@ -1,31 +1,41 @@
-// Récupère toutes les pages du livre
-const pageTurnBtn = document.querySelectorAll(".nextprev-btn");
-const pages = document.querySelectorAll(".book-page");
-const allPages = Array.from(pages);
+// === VARIABLES GLOBALES ===
+// Cible les éléments nécessaires
+const coverRight = document.querySelector(".cover.cover-right"); // Couverture droite
+const pageLeft = document.querySelector(".book-page.page-left"); // Page de profil (gauche)
+const pages = document.querySelectorAll(".book-page"); // Toutes les pages
+const allPages = Array.from(pages); // Conversion en tableau pour une manipulation plus facile
+const pageTurnBtn = document.querySelectorAll(".nextprev-btn"); // Boutons de navigation
 
-// Fonction pour ajouter ou retirer les gestionnaires d'événements en fonction de la taille de l'écran
+// Variables pour la gestion des pages
+let totalPages = pages.length; // Nombre total de pages
+let pageNumber = 0; // Page active (index)
+
+// === FONCTIONS ===
+
+// Fonction : Ajout ou retrait des gestionnaires d'événements de clic
 function toggleEventListeners() {
-  if (window.innerWidth > 800) {
-    // Si la largeur de l'écran est supérieure à 800px
-    // Ajoute un gestionnaire d'événements à chaque bouton "Next/Prev"
-    pageTurnBtn.forEach((el, index) => {
-      el.onclick = () => {
-        const pageTurnId = el.getAttribute("data-page");
-        const pageTurn = document.getElementById(pageTurnId);
+  pageTurnBtn.forEach((btn, index) => {
+    btn.onclick = () => {
+      const pageTurnId = btn.getAttribute("data-page"); // ID de la page cible
+      const pageTurn = document.getElementById(pageTurnId); // Page cible
 
-        if (pageTurn.classList.contains("turn")) {
-          pageTurn.classList.remove("turn");
-          setTimeout(() => (pageTurn.style.zIndex = 20 - index), 500);
-        } else {
-          pageTurn.classList.add("turn");
-          setTimeout(() => (pageTurn.style.zIndex = 20 + index), 500);
-        }
-      };
-    });
+      if (pageTurn.classList.contains("turn")) {
+        // Si la page est tournée, la retourner
+        pageTurn.classList.remove("turn");
+        setTimeout(() => (pageTurn.style.zIndex = 20 - index), 500);
+      } else {
+        // Sinon, la tourner
+        pageTurn.classList.add("turn");
+        setTimeout(() => (pageTurn.style.zIndex = 20 + index), 500);
+      }
+    };
+  });
+}
 
-    // Bouton "Contact Me" : tourne toutes les pages pour atteindre la section Contact
-    const contactMeBtn = document.querySelector(".btn.contact-me");
-
+// Fonction : Gestion du bouton "Contact Me"
+function setupContactButton() {
+  const contactMeBtn = document.querySelector(".btn.contact-me");
+  if (contactMeBtn) {
     contactMeBtn.onclick = () => {
       pages.forEach((page, index) => {
         setTimeout(() => {
@@ -34,10 +44,13 @@ function toggleEventListeners() {
         }, (index + 1) * 200 + 100);
       });
     };
+  }
+}
 
-    // Bouton "Profile" : revenir à la page de profil en inversant les pages tournées
-    const backProfileBtn = document.querySelector(".back-profile");
-
+// Fonction : Gestion du bouton "Back to Profile"
+function setupBackProfileButton() {
+  const backProfileBtn = document.querySelector(".back-profile");
+  if (backProfileBtn) {
     backProfileBtn.onclick = () => {
       pages.forEach((_, index) => {
         setTimeout(() => {
@@ -51,28 +64,10 @@ function toggleEventListeners() {
         }, (index + 1) * 200 + 100);
       });
     };
-  } else {
-    // Désactive les événements de clic sur les boutons si la largeur est inférieure ou égale à 800px
-    pageTurnBtn.forEach((el) => {
-      el.onclick = null;
-    });
-
-    const contactMeBtn = document.querySelector(".btn.contact-me");
-    if (contactMeBtn) {
-      contactMeBtn.onclick = null;
-    }
-
-    const backProfileBtn = document.querySelector(".back-profile");
-    if (backProfileBtn) {
-      backProfileBtn.onclick = null;
-    }
   }
 }
 
-// Fonction pour gérer les index inversés lors de la navigation arrière
-let totalPages = pages.length;
-let pageNumber = 0;
-
+// Fonction : Gère l'index inversé pour revenir en arrière
 function reverseIndex() {
   pageNumber--;
   if (pageNumber < 0) {
@@ -80,59 +75,47 @@ function reverseIndex() {
   }
 }
 
-// Animation d'ouverture : gestion de l'ouverture automatique des pages au chargement
-const coverRight = document.querySelector(".cover.cover-right"); // Cible la couverture droite
-const pageLeft = document.querySelector(".book-page.page-left"); // Cible la page de profil (gauche)
-
-setTimeout(() => {
-  coverRight.classList.add("turn");
-}, 2100);
-
-setTimeout(() => {
-  coverRight.style.zIndex = -1;
-}, 2800);
-
-setTimeout(() => {
-  pageLeft.style.zIndex = 20;
-}, 3200);
-
-pages.forEach((_, index) => {
+// Fonction : Animation d'ouverture automatique au chargement
+function autoOpenAnimation() {
   setTimeout(() => {
-    reverseIndex();
-    pages[pageNumber].classList.remove("turn");
+    coverRight.classList.add("turn"); // Ouvre la couverture droite
+  }, 2100);
 
+  setTimeout(() => {
+    coverRight.style.zIndex = -1; // Masque la couverture
+  }, 2800);
+
+  setTimeout(() => {
+    pageLeft.style.zIndex = 20; // Met la page gauche devant
+  }, 3200);
+
+  // Animation progressive des pages droites
+  pages.forEach((_, index) => {
     setTimeout(() => {
       reverseIndex();
-      pages[pageNumber].style.zIndex = 10 + index;
-    }, 500);
-  }, (index + 1) * 200 + 2100);
-});
+      pages[pageNumber].classList.remove("turn");
 
-// Applique un fond transparent flouté aux pages sur mobile (moins de 800px)
-function applyBlurredBackground() {
-  if (window.innerWidth <= 800) {
-    console.log("Mobile détecté : application du fond transparent flouté.");
-    allPages.forEach((page, index) => {
-      page.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
-      page.style.backdropFilter = "blur(10px)";
-      page.style.webkitBackdropFilter = "blur(10px)";
-    });
-  } else {
-    console.log("Desktop détecté : réinitialisation du fond.");
-    allPages.forEach((page) => {
-      page.style.backgroundColor = "";
-      page.style.backdropFilter = "";
-      page.style.webkitBackdropFilter = "";
-    });
-  }
+      setTimeout(() => {
+        reverseIndex();
+        pages[pageNumber].style.zIndex = 10 + index;
+      }, 500);
+    }, (index + 1) * 200 + 2100);
+  });
 }
 
-// Appliquer le fond flouté dès le chargement et sur redimensionnement
-applyBlurredBackground();
+// === ÉVÉNEMENTS ===
+
+// Ajuster le fond et réinitialiser les gestionnaires d'événements au redimensionnement
 window.addEventListener("resize", () => {
-  applyBlurredBackground();
-  toggleEventListeners(); // Met à jour les gestionnaires d'événements lors du redimensionnement
+  toggleEventListeners(); // Met à jour les gestionnaires d'événements en fonction de la taille
 });
 
-// Appel initial pour activer les gestionnaires d'événements en fonction de la taille actuelle de l'écran
+// === INITIALISATION ===
+
+// Active les gestionnaires d'événements
 toggleEventListeners();
+setupContactButton();
+setupBackProfileButton();
+
+// Lance l'animation d'ouverture
+autoOpenAnimation();

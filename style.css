@@ -491,96 +491,80 @@ body {
   top: -1.8rem;
 }
 
-/* Ajout de media queries pour la réactivité */
 
-/* Media query pour les écrans de moins de 800px */
 /* Cible les écrans de 800px ou moins */
-@media (max-width: 800px) {
-  /* Réorganiser les éléments de la page du livre */
-  .book {
-    display: block;
-    width: 100%;
-  }
 
-  .book-page {
-    display: block;
-    width: 100%;
-    margin: 0 auto;
-    margin-bottom: 20px; /* Espacement entre les pages */
-  }
-
-  /* La couverture gauche et droite deviennent invisibles ou réorganisées */
-  .cover {
-    display: none; /* Cache les couvertures à 800px ou moins */
-  }
-
-  /* Les boutons de navigation (précédent / suivant) se placent sous les pages */
-  .nextprev-btn {
-    position: relative;
-    display: block;
-    margin: 10px auto;
-  }
-
-  /* Alignement des images et des informations sur les pages */
-  .profile-page,
-  .page-front,
-  .page-back {
+/* *************Media queries******************* */
+@media screen and (max-width: 800px) {
+  .profile-page h1 {
+    font-size: 1.5rem;
     text-align: center;
   }
-
-  /* Ajuster les tailles de texte et de marges */
-  .profile-page h1 {
-    font-size: 24px;
+  .profile-page h3 {
+    font-size: 0.9rem;
   }
-
-  .profile-page h3,
-  .workeduc-content h3,
-  .skills-content h3 {
-    font-size: 18px;
-  }
-
-  /* Ajuster les blocs sociaux et les boutons */
-  .social-media {
-    display: block;
-    margin-top: 10px;
-  }
-
-  .btn-box {
-    display: block;
-    margin-top: 20px;
-  }
-
-  /* Empêcher les images de s'étirer horizontalement */
-  img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-  }
-
-  /* Ajuster les listes de travail et de formation */
-  .workeduc-box,
-  .services-box,
-  .skills-box,
-  .portfolio-box {
-    width: 100%;
-    display: block;
-  }
-
-  /* Ajuster les formulaires dans la section Contact */
-  .contact-box form {
-    width: 100%;
+  .book .profile-page .social-media a {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
   }
-
-  .contact-box .field {
-    width: 80%;
-    margin: 10px 0;
+  
+  .profile-page p {
+    font-size: 0.7rem;
+    text-align: justify;
+    
   }
-
-  .contact-box .btn {
-    width: 80%;
-    padding: 10px;
+  .profile-page img {
+    max-width: 70px;
+   
   }
+ /* Style de base */
+.profile-page .social-media a {
+  
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: var(--border);
+  border-radius: 45%;
+  font-size: 1.3rem;
+  color: var(--main-color);
+  margin: 0 4.2rem; /* Espacement horizontal entre les boutons */
+  transition: 0.5s;
+}
+
+.btn-box a {
+
+  margin: 1.9rem 0;
+}
+.workeduc-box .workeduc-content::before {
+  content: none; /* Désactive le pseudo-élément */
+  width: 0; /* Facultatif : Réinitialise la largeur */
+  height: 0; /* Facultatif : Réinitialise la hauteur */
+}
+.page-back h1 {
+  font-size: 1.3rem;
+}
+.page-back h3 {
+  font-size: 0.9rem;
+}
+.page-front h1 {
+  font-size: 1.3rem;
+}
+.page-front h3 {
+  font-size: 0.9rem;
+}
+.page-front ul li {
+  font-size: 0.6em;
+}
+
+
+.services-box {
+  display: block;
+}
+
+ 
+
+
+  
+  
 }
