@@ -588,8 +588,16 @@ body {
 
   .profile-page p {
     font-size: 0.5rem;
+<<<<<<< HEAD
   }
 
+=======
+    
+  }
+  
+  
+  /* Style de base pour les a*/
+>>>>>>> 8332c0bb0af37bfe7b40bedbc625bbb17282a56f
   .profile-page .social-media a {
     width: 1.4rem;
     height: 1.4rem;
