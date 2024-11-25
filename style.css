@@ -668,6 +668,14 @@ body {
   form button[type="submit"] {
     padding: 7px;
     font-size: 0.85rem;
+    display: inline-flex; /* Permet de centrer avec flexbox */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    width: auto; /* Laissez le bouton s'adapter au contenu */
+    height: auto; /* Ajuste la hauteur en fonction du texte */
+    padding: 1rem 2rem; /* Ajuste l'espacement interne */
+    font-size: 1rem; /* Taille du texte */
+    text-align: center; /* Centre le texte pour les cas d'alignement */
   }
 }
 
