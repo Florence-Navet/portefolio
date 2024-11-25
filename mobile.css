@@ -67,6 +67,7 @@ body {
 .profile-page h1 {
   font-size: 2.7rem;
   line-height: 1;
+  color: var(--white-color);
 }
 
 .profile-page h3 {
@@ -101,6 +102,7 @@ body {
 .profile-page p {
   text-align: justify;
   margin-top: 1rem;
+  color: var(--white-color);
 }
 
 .profile-page .btn-box {
@@ -201,7 +203,15 @@ body {
 }
 
 /* ----------- PORTFOLIO ----------- */
-
+.book .title {
+  color: var(--white-color);
+}
+.book h3 {
+  color: var(--white-color);
+}
+.book ul {
+  color: var(--white-color);
+}
 .portfolio-box {
   display: flex;
   flex-direction: column;
@@ -289,13 +299,14 @@ body {
 }
 
 .contact-box .btn {
-  cursor: pointer;
-  background: var(--main-color);
-  color: var(--white-color);
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 0.3rem;
-  font-size: 1rem;
+  display: inline-flex; /* Permet de centrer avec flexbox */
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+  width: auto; /* Laissez le bouton s'adapter au contenu */
+  height: auto; /* Ajuste la hauteur en fonction du texte */
+  padding: 1rem 2rem; /* Ajuste l'espacement interne */
+  font-size: 1rem; /* Taille du texte */
+  text-align: center; /* Centre le texte pour les cas d'alignement */
 }
 
 .contact-box .btn:hover {
