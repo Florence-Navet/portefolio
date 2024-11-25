@@ -313,3 +313,9 @@ body {
   background: transparent;
   color: var(--main-color);
 }
+.number-page {
+  display: none;
+}
+.nextprev-btn {
+  display: none;
+}
