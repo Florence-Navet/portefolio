@@ -122,3 +122,25 @@ autoOpenAnimation();
 
 //en mediaqueries
 // Définition d'un effet d'animation
+
+// Fonction pour gérer le changement de feuille de style
+function switchStylesheet() {
+  const viewportWidth = window.innerWidth; // Récupère la largeur de l'écran
+  const pcStylesheet = document.querySelector("link[href='./style.css']"); // Style pour PC
+  const mobileStylesheet = document.querySelector("link[href='./mobile.css']"); // Style pour Mobile
+
+  // Active/Désactive les styles en fonction de la largeur de l'écran
+  if (viewportWidth > 800) {
+    pcStylesheet.disabled = false;
+    mobileStylesheet.disabled = true;
+  } else {
+    pcStylesheet.disabled = true;
+    mobileStylesheet.disabled = false;
+  }
+}
+
+// Événement : À chaque redimensionnement de la fenêtre, réévalue la feuille de style
+window.addEventListener("resize", switchStylesheet);
+
+// Initialisation : Applique le style correct au chargement
+switchStylesheet();

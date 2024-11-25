@@ -1,0 +1,304 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+:root {
+  --bg-color: #081b29;
+  --main-color: #00abf0;
+  --text-color: #333;
+  --second-text-color: #555;
+  --white-color: #fff;
+  --cover-color: linear-gradient(45deg, #00abf0, #006e9a);
+  --pages-color: linear-gradient(90deg, #fff, #ddd);
+  --border: 0.125rem solid #00abf0;
+  --box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.2);
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.wrapper {
+  width: 100%;
+  padding: 2rem;
+  max-width: 1200px; /* Limite de largeur pour des écrans plus larges */
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.cover {
+  display: none;
+}
+
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.profile-page img {
+  max-width: 180px;
+  border-radius: 50%;
+  border: 0.25rem solid var(--main-color);
+  margin-bottom: 1rem;
+}
+
+.profile-page h1 {
+  font-size: 2.7rem;
+  line-height: 1;
+}
+
+.profile-page h3 {
+  font-size: 1.5rem;
+  color: var(--main-color);
+}
+
+.profile-page .social-media {
+  margin: 1rem 0;
+}
+
+.profile-page .social-media a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: transparent;
+  border: var(--border);
+  border-radius: 50%;
+  font-size: 1.3rem;
+  color: var(--main-color);
+  margin: 0 0.5rem;
+  transition: 0.3s;
+}
+
+.profile-page .social-media a:hover {
+  background: var(--main-color);
+  color: var(--white-color);
+}
+
+.profile-page p {
+  text-align: justify;
+  margin-top: 1rem;
+}
+
+.profile-page .btn-box {
+  margin-top: 2rem;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 9.5rem;
+  height: 3rem;
+  background: var(--main-color);
+  border: var(--border);
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  color: var(--white-color);
+  font-weight: 500;
+  margin: 0.5rem;
+  transition: 0.5s;
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--main-color);
+}
+
+.btn-box .btn:nth-child(2) {
+  background: transparent;
+  color: var(--main-color);
+}
+
+.btn-box .btn:nth-child(2):hover {
+  background: var(--main-color);
+  color: var(--white-color);
+}
+
+/* ----------- WORK, EDUCATION & SERVICES ----------- */
+
+.workeduc-box,
+.services-box,
+.skills-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.workeduc-box .workeduc-content,
+.services-box .services-content,
+.skills-box .skills-content {
+  border: var(--border);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  background: #fff;
+  box-shadow: var(--box-shadow);
+}
+
+.workeduc-box h2,
+.services-box h2,
+.skills-box h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.workeduc-box .workeduc-content,
+.services-box .services-content,
+.skills-box .skills-content {
+  text-align: center;
+}
+
+.workeduc-box .workeduc-content .year,
+.skills-box .skills-content .content {
+  color: var(--main-color);
+}
+
+/* ----------- SKILLS SECTION ----------- */
+
+.skills-content .content span {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 6rem;
+  height: 6rem;
+  border: var(--border);
+  border-radius: 0.3rem;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.skills-content .content span:hover {
+  box-shadow: var(--box-shadow);
+}
+
+.skills-content .content span i {
+  font-size: 2rem;
+  color: var(--main-color);
+}
+
+/* ----------- PORTFOLIO ----------- */
+
+.portfolio-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.portfolio-box .img-box {
+  width: 100%;
+  height: 15rem;
+  border: var(--border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.portfolio-box .img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portfolio-box .img-box:hover img {
+  transform: scale(1.1);
+}
+
+.portfolio-box .info-box {
+  margin: 1rem 0;
+}
+
+.portfolio-box .info-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.portfolio-box .info-title h3 {
+  font-size: 1.3rem;
+}
+
+.portfolio-box .info-title a {
+  display: flex;
+  align-items: center;
+  color: var(--main-color);
+}
+
+.portfolio-box .info-title a i {
+  margin-left: 0.3rem;
+}
+
+.portfolio-box .btn-box {
+  display: flex;
+  justify-content: center;
+}
+
+.portfolio-box .btn-box .btn {
+  margin: 0 1rem;
+}
+
+/* ----------- CONTACT ----------- */
+
+.contact-box {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.contact-box .field {
+  width: 100%;
+  background: transparent;
+  border: var(--border);
+  border-radius: 0.3rem;
+  padding: 0.8rem;
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+.contact-box .field::placeholder {
+  color: var(--text-color);
+}
+
+.contact-box textarea {
+  resize: none;
+  height: 15rem;
+}
+
+.contact-box .btn {
+  cursor: pointer;
+  background: var(--main-color);
+  color: var(--white-color);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+}
+
+.contact-box .btn:hover {
+  background: transparent;
+  color: var(--main-color);
+}

@@ -31,6 +31,7 @@ body {
   background: var(--bg-color);
   color: var(--text-color);
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 .wrapper {
@@ -101,10 +102,6 @@ body {
 
 .book-page.page-left {
   box-shadow: -0.6rem 0.6rem 0.6rem rgba(0, 0, 0, 0.1);
-}
-.page-front h1,
-.page-back h1 {
-  font-size: 1.6rem;
 }
 
 .profile-page {
@@ -212,10 +209,9 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 85%;
+  height: 100%;
   background: var(--pages-color);
   padding: 1.5rem 2rem;
-  margin-top: 50px;
 }
 
 .book-page .page-front {
@@ -315,7 +311,7 @@ body {
 }
 
 .services-content h3 {
-  font-size: 0.7rem;
+  font-size: 1.1rem;
 }
 
 .services-content p {
@@ -449,7 +445,7 @@ body {
 
 .contact-box textarea {
   resize: none;
-  height: 10rem;
+  height: 15rem;
 }
 
 .contact-box .btn {
@@ -495,28 +491,19 @@ body {
   top: -1.8rem;
 }
 
+/* Cible les écrans de 800px ou moins */
 
 /* *************Media queries******************* */
 /* Cible les écrans de 800px ou moins */
-
+/* Cible les écrans de 800px ou moins */
 @media screen and (max-width: 800px) {
   .profile-page h1 {
     font-size: 1.5rem;
     text-align: center;
   }
 
-  .page-front h1,
-  .page-back h1 {
-  font-size: 1.1rem;
-  }
-  .page-front p,
-  .page-back P {
-  font-size: 0.6rem;
-  }
-  .portfolio-box .img-box {
-    width: 30vh;
-    margin-right: 50px 0;
-    height: 50px;
+  .profile-page h3 {
+    font-size: 0.9rem;
   }
 
   .book .profile-page .social-media a {
@@ -577,13 +564,6 @@ body {
 
   .services-box {
     display: block;
-  }
-  .contact-box .btn {
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 65%;
   }
 }
 
