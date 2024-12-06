@@ -112,7 +112,7 @@ body {
 }
 
 .profile-page img {
-  max-width: 180px;
+  max-width: 150px;
   border-radius: 50%;
   border: 0.25rem solid var(--main-color);
   margin-bottom: 0.8rem;
