@@ -177,6 +177,30 @@ body {
 .skills-box .skills-content .content {
   color: var(--main-color);
 }
+.workeduc-img {
+  width: 100%;
+  height: 12rem; /* Ajuster la hauteur en fonction de vos préférences */
+  border-radius: 0.5rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.workeduc-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintient les proportions de l'image */
+  transition: transform 0.3s ease-in-out;
+}
+
+.workeduc-img:hover img {
+  transform: scale(1.05); /* Léger agrandissement lors du survol */
+}
+
+#projets_suite {
+  display: none;
+}
 
 /* ----------- SKILLS SECTION ----------- */
 
