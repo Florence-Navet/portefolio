@@ -107,13 +107,19 @@ function switchStylesheet() {
   const mobileStylesheet = document.querySelector("link[href='./mobile.css']"); // Style pour Mobile
 
   // Active/Désactive les styles en fonction de la largeur de l'écran
-  if (viewportWidth > 700) {
+  if (viewportWidth > 960) {
     pcStylesheet.disabled = false;
     mobileStylesheet.disabled = true;
-  } else {
+    tabletStylesheet.disabled = true;
+} else if (viewportWidth <= 960 && viewportWidth > 700) {
+    pcStylesheet.disabled = false;
+    mobileStylesheet.disabled = true;
+    tabletStylesheet.disabled = true;
+} else {
     pcStylesheet.disabled = true;
     mobileStylesheet.disabled = false;
-  }
+    tabletStylesheet.disabled = true;
+}
 }
 
 // === INITIALISATION ===
