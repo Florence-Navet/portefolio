@@ -129,19 +129,15 @@ function switchStylesheet() {
   const pcStylesheet = document.querySelector("link[href='./style.css']"); // Style pour PC
   const mobileStylesheet = document.querySelector("link[href='./mobile.css']"); // Style pour Mobile
 
- // Active/Désactive les styles en fonction de la largeur de l'écran
-if (viewportWidth > 960) {
-  pcStylesheet.disabled = false;
-  mobileStylesheet.disabled = true;
-} else if (viewportWidth <= 960 && viewportWidth > 700) {
-  // Appliquer des styles spécifiques pour la plage entre 960 et 700 pixels
-  pcStylesheet.disabled = false;
-  mobileStylesheet.disabled = true; // Ou un autre fichier de style, si besoin
-} else {
-  pcStylesheet.disabled = true;
-  mobileStylesheet.disabled = false;
+  // Active/Désactive les styles en fonction de la largeur de l'écran
+  if (viewportWidth > 700) {
+    pcStylesheet.disabled = false;
+    mobileStylesheet.disabled = true;
+  } else {
+    pcStylesheet.disabled = true;
+    mobileStylesheet.disabled = false;
+  }
 }
-
 
 // Événement : À chaque redimensionnement de la fenêtre, réévalue la feuille de style
 window.addEventListener("resize", switchStylesheet);
