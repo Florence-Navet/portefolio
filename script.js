@@ -1,12 +1,9 @@
 // === VARIABLES GLOBALES ===
-// Cible les éléments nécessaires
 const coverRight = document.querySelector(".cover.cover-right"); // Couverture droite
 const pageLeft = document.querySelector(".book-page.page-left"); // Page de profil (gauche)
 const pages = document.querySelectorAll(".book-page"); // Toutes les pages
-const allPages = Array.from(pages); // Conversion en tableau pour une manipulation plus facile
 const pageTurnBtn = document.querySelectorAll(".nextprev-btn"); // Boutons de navigation
 
-// Variables pour la gestion des pages
 let totalPages = pages.length; // Nombre total de pages
 let pageNumber = 0; // Page active (index)
 
@@ -103,26 +100,6 @@ function autoOpenAnimation() {
   });
 }
 
-// === ÉVÉNEMENTS ===
-
-// Ajuster le fond et réinitialiser les gestionnaires d'événements au redimensionnement
-window.addEventListener("resize", () => {
-  toggleEventListeners(); // Met à jour les gestionnaires d'événements en fonction de la taille
-});
-
-// === INITIALISATION ===
-
-// Active les gestionnaires d'événements
-toggleEventListeners();
-setupContactButton();
-setupBackProfileButton();
-
-// Lance l'animation d'ouverture
-autoOpenAnimation();
-
-//en mediaqueries
-// Définition d'un effet d'animation
-
 // Fonction pour gérer le changement de feuille de style
 function switchStylesheet() {
   const viewportWidth = window.innerWidth; // Récupère la largeur de l'écran
@@ -139,8 +116,16 @@ function switchStylesheet() {
   }
 }
 
-// Événement : À chaque redimensionnement de la fenêtre, réévalue la feuille de style
-window.addEventListener("resize", switchStylesheet);
+// === INITIALISATION ===
 
-// Initialisation : Applique le style correct au chargement
+// Active les gestionnaires d'événements au chargement
+toggleEventListeners();
+setupContactButton();
+setupBackProfileButton();
+
+// Lance l'animation d'ouverture
+autoOpenAnimation();
+
+// Définition d'un effet d'animation pour changer la feuille de style
+window.addEventListener("resize", switchStylesheet);
 switchStylesheet();
