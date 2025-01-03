@@ -114,6 +114,11 @@ function switchStylesheet() {
     pcStylesheet.disabled = true;
     mobileStylesheet.disabled = false;
 }
+  // Force un rechargement immédiat du style
+  window.requestAnimationFrame(() => {
+    pcStylesheet.disabled = viewportWidth <= 960;
+    mobileStylesheet.disabled = viewportWidth > 960;
+  });
 }
 
 // === INITIALISATION ===
