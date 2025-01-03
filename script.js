@@ -107,7 +107,7 @@ function switchStylesheet() {
   const mobileStylesheet = document.querySelector("link[href='./mobile.css']"); // Style pour Mobile
 
   // Active/Désactive les styles en fonction de la largeur de l'écran
-  if (viewportWidth > 800) {
+  if (viewportWidth > 700) {
     pcStylesheet.disabled = false;
     mobileStylesheet.disabled = true;
 } else {
