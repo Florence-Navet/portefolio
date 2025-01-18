@@ -94,7 +94,9 @@ function autoOpenAnimation() {
 
       setTimeout(() => {
         reverseIndex();
-        pages[pageNumber].style.zIndex = 10 + index;
+        pages[pageNumber].style.zIndex = 15 + index;
+
+        console.log("page number"); // Affiche "Bonjour, monde !" dans la console
       }, 500);
     }, (index + 1) * 200 + 2100);
   });
@@ -110,10 +112,10 @@ function switchStylesheet() {
   if (viewportWidth > 800) {
     pcStylesheet.disabled = false;
     mobileStylesheet.disabled = true;
-} else {
+  } else {
     pcStylesheet.disabled = true;
     mobileStylesheet.disabled = false;
-}
+  }
 }
 
 // === INITIALISATION ===

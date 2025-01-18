@@ -95,6 +95,7 @@ body {
 
 .book .book-page {
   position: absolute;
+  transition: transform 0.5s ease, z-index 0.5s ease;
   width: 50%;
   height: 100%;
   background: var(--pages-color);
@@ -283,6 +284,12 @@ body {
   height: auto;
   border-radius: 0.3rem;
 }
+.workeduc-img video {
+  height: 95px; /* Ajustez cette valeur selon vos pxbesoins */
+  width: 100%; /* Conserve la largeur à 100% */
+  object-fit: cover; /* Ajuste l'image vidéo pour remplir sans déformer */
+}
+
 .workeduc-content {
   flex-grow: 1;
   width: 55%;
@@ -527,4 +534,3 @@ body {
   transform: translateX(-50%) scale(1);
   top: -1.8rem;
 }
-
