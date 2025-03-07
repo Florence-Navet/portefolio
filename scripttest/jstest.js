@@ -29,6 +29,7 @@ function toggleEventListeners() {
   });
 }
 
+
 // Fonction : Gestion du bouton "Contact Me"
 function setupContactButton() {
   const contactMeBtn = document.querySelector(".btn.contact-me");
@@ -96,7 +97,7 @@ function autoOpenAnimation() {
         reverseIndex();
         pages[pageNumber].style.zIndex = 15 + index;
 
-        console.log("page number"); // Affiche "page number" dans la console
+        console.log("page number"); // Affiche "Bonjour, monde !" dans la console
       }, 500);
     }, (index + 1) * 200 + 2100);
   });
@@ -118,30 +119,8 @@ function switchStylesheet() {
   }
 }
 
-// Fonction : Met à jour les pages après ajout ou changement
-function updatePages() {
-  // Ne pas affecter la page 1 qui doit toujours être visible
-  pages.forEach((page, index) => {
-    if (index === 0) {
-      // Ne pas réinitialiser la page 1
-      page.style.zIndex = 20;  // Assurez-vous que la page 1 est devant
-    } else {
-      // Pour les autres pages, réinitialiser le z-index
-      page.style.zIndex = 10 + index;  // Réinitialiser les autres pages
-    }
-
-    // Ne pas enlever la classe "turn" des pages qui sont déjà en cours d'animation
-    if (!page.classList.contains("turn")) {
-      page.classList.remove("turn");
-    }
-  });
-
-  // Mettre à jour les pages à l'aide de l'indice `pageNumber`
-  pageNumber = 0;  // Réinitialise l'indice de la page active
-  totalPages = pages.length;  // Mise à jour du total des pages
-}
-
 // === INITIALISATION ===
+
 
 // Active les gestionnaires d'événements au chargement
 toggleEventListeners();
@@ -151,9 +130,8 @@ setupBackProfileButton();
 // Lance l'animation d'ouverture
 autoOpenAnimation();
 
+
 // Définition d'un effet d'animation pour changer la feuille de style
 window.addEventListener("resize", switchStylesheet);
 switchStylesheet();
 
-// Met à jour l'index et les pages après tout changement
-updatePages();

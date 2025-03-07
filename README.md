@@ -2,6 +2,8 @@
 
 ## mon portefolio
 
-**projet personnel et en équipe**
+**projet personnel**
 
-++
+fait en html, css et javascript
+
+![preview main](portefolio.png)
