@@ -109,7 +109,7 @@ function switchStylesheet() {
   const mobileStylesheet = document.querySelector("link[href='./mobile.css']"); // Style pour Mobile
 
   // Active/Désactive les styles en fonction de la largeur de l'écran
-  if (viewportWidth > 800) {
+  if (viewportWidth > 1180) {
     pcStylesheet.disabled = false;
     mobileStylesheet.disabled = true;
   } else {
@@ -124,10 +124,10 @@ function updatePages() {
   pages.forEach((page, index) => {
     if (index === 0) {
       // Ne pas réinitialiser la page 1
-      page.style.zIndex = 20;  // Assurez-vous que la page 1 est devant
+      page.style.zIndex = 20; // Assurez-vous que la page 1 est devant
     } else {
       // Pour les autres pages, réinitialiser le z-index
-      page.style.zIndex = 10 + index;  // Réinitialiser les autres pages
+      page.style.zIndex = 10 + index; // Réinitialiser les autres pages
     }
 
     // Ne pas enlever la classe "turn" des pages qui sont déjà en cours d'animation
@@ -137,8 +137,8 @@ function updatePages() {
   });
 
   // Mettre à jour les pages à l'aide de l'indice `pageNumber`
-  pageNumber = 0;  // Réinitialise l'indice de la page active
-  totalPages = pages.length;  // Mise à jour du total des pages
+  pageNumber = 0; // Réinitialise l'indice de la page active
+  totalPages = pages.length; // Mise à jour du total des pages
 }
 
 // === INITIALISATION ===
