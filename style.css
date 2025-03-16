@@ -23,6 +23,7 @@
   --pages-color: linear-gradient(90deg, #fff, #ddd);
   --border: 0.125rem solid #00abf0;
   --box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.2);
+  --btn-hover: #006e9a;
 }
 a {
   color: var(--color-ancor);
@@ -170,19 +171,26 @@ body {
   align-items: center;
   width: 9.5rem;
   height: 3rem;
-  background: var(--main-color);
-  border: var(--border);
+  background: var(--white-color);
+  border: 4px solid var(--bg-color);
+
   border-radius: 0.3rem;
   font-size: 1rem;
-  color: var(--white-color);
+  color: var(--bg-color);
+  font-weight: bold;
   font-weight: 500;
   margin: 0 1rem;
   transition: 0.5s;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .btn:hover {
   background: transparent;
-  color: var(--main-color);
+  color: var(--btn-hover);
+  font-weight: 900;
+  transform: scale(1.2);
+
 }
 
 .btn-box .btn:nth-child(2) {
