@@ -86,15 +86,18 @@ function autoOpenAnimation() {
     pageLeft.style.zIndex = 20; // Met la page gauche devant
   }, 3200);
 
+  let currentPage = pages.length - 4;
+  
+
   // Animation progressive des pages droites
   pages.forEach((_, index) => {
     setTimeout(() => {
       reverseIndex();
-      pages[pageNumber].classList.remove("turn");
+      pages[currentPage].classList.remove("turn");
 
       setTimeout(() => {
         reverseIndex();
-        pages[pageNumber].style.zIndex = 15 + index;
+        pages[currentPage].style.zIndex = 15 + index;
 
         console.log("page number"); // Affiche "page number" dans la console
       }, 500);
@@ -143,17 +146,17 @@ function updatePages() {
 
 // === INITIALISATION ===
 
-// Active les gestionnaires d'événements au chargement
 toggleEventListeners();
 setupContactButton();
 setupBackProfileButton();
 
-// Lance l'animation d'ouverture
+// D'abord on met à jour les z-index et les pages
+updatePages();
+
+// Puis on lance l'animation d'ouverture
 autoOpenAnimation();
 
-// Définition d'un effet d'animation pour changer la feuille de style
+// Gestion de la feuille de style responsive
 window.addEventListener("resize", switchStylesheet);
 switchStylesheet();
 
-// Met à jour l'index et les pages après tout changement
-updatePages();
